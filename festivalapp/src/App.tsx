@@ -1,121 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
+import './App.scss'
+import HomeScreen from './pages/HomeScreen/HomeScreen'
+import LineupScreen from './pages/LineupScreen/LineupScreen'
+import FavactScreen from './pages/FavactScreen/FavactScreen'
+import InfoScreen from './pages/InfoScreen/InfoScreen'
+import MapScreen from './pages/MapScreen/MapScreen'
+import logo from './assets/img/logo_white.svg'
+import homeIcon from './assets/icons/home.png'
+import homeIconRed from './assets/icons/homered.png'
+import infoIcon from './assets/icons/info.png'
+import infoIconRed from './assets/icons/infored.png'
+import lineupIcon from './assets/icons/musical-note.png'
+import lineupIconRed from './assets/icons/musicalnotered.png'
+import favoritesIcon from './assets/icons/heart.png'
+import favoritesIconRed from './assets/icons/heartred.png'
+import mapIcon from './assets/icons/placeholder.png'
+import mapIconRed from './assets/icons/placeholderred.png'
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppContent() {
+  const location = useLocation()
+
+  const navItems = [
+    { path: '/', label: 'HOME', icon: homeIcon, iconRed: homeIconRed },
+    { path: '/info', label: 'INFO', icon: infoIcon, iconRed: infoIconRed },
+    { path: '/lineup', label: 'LINE-UP', icon: lineupIcon, iconRed: lineupIconRed },
+    { path: '/favorites', label: 'FAVORITES', icon: favoritesIcon, iconRed: favoritesIconRed },
+    { path: '/map', label: 'MAP', icon: mapIcon, iconRed: mapIconRed },
+  ]
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="app">
+      <header className="header">
+        <div className="header-content">
+          <div className="logo-section">
+            <img src={logo} alt="Festival Logo" className="logo-img" />
+            <span className="festival-text">FESTIVAL</span>
+          </div>
+          <img src="/src/assets/icons/lightbulb.png" alt="Lightbulb" className="lightbulb" />
+          <img src="/src/assets/img/dutchflag.png" alt="Flag" className="flag" />
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/lineup" element={<LineupScreen />} />
+          <Route path="/favorites" element={<FavactScreen />} />
+          <Route path="/info" element={<InfoScreen />} />
+          <Route path="/map" element={<MapScreen />} />
+        </Routes>
+      </main>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <nav className="bottom-nav">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+          >
+            <img 
+              src={location.pathname === item.path ? item.iconRed : item.icon} 
+              alt={item.label} 
+              className="nav-icon"
+            />
+            <span className="nav-label">{item.label}</span>
+          </Link>
+        ))}
+      </nav>
+    </div>
+  )
+}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   )
 }
 

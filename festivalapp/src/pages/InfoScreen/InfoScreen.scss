@@ -1,0 +1,33 @@
+.infoscreen {
+    .info-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .info-section {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #2C2F33;
+
+            h4 {
+                font-size: 21px;
+                margin-bottom: 10px;
+                color: #F03228;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #ccc;
+            }
+
+            .heart-icon {
+                width: 64px;
+                height: 64px;
+                vertical-align: middle;
+                margin-right: 1px;
+            }
+        }
+    }
+}

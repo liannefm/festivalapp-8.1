@@ -1,0 +1,66 @@
+.favactscreen {
+    .favorites-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .favorite-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #222;
+            padding: 12px;
+            border-radius: 8px;
+
+            .artist-avatar {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #444;
+                flex-shrink: 0;
+            }
+
+            .artist-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2px;
+                flex: 1;
+
+                .artist-name {
+                    font-weight: 600;
+                    font-size: 18px;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+
+                .artist-type {
+                    font-size: 14px;
+                    color: #aaa;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+
+                .artist-time {
+                    font-size: 12px;
+                    color: #aaa;
+                    margin: 0;
+                    line-height: 1.2;
+                }
+            }
+
+            .favorite-btn {
+                margin-left: auto;
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 0;
+
+                &.active {
+                    color: #ff4d7d;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+.lineupscreen {
+  .day-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+
+    .tab {
+      padding: 8px 20px;
+      background-color: transparent;
+      border: 1px solid #666;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s;
+
+      &.active {
+        background-color: #ff4d7d;
+        border-color: #ff4d7d;
+      }
+
+      &:hover:not(.active) {
+        border-color: #aaa;
+      }
+    }
+  }
+
+  .timeline {
+    margin-bottom: 30px;
+
+    .time-slot {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+      align-items: center;
+
+      .time {
+        width: 40px;
+        font-size: 12px;
+        color: #aaa;
+      }
+
+      .artist-bar {
+        flex: 1;
+        height: 30px;
+        background-color: #ff4d7d;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .stage-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+
+    .stage-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+
+      .stage-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+
+        &.poton {
+          background-color: #ff4d7d;
+        }
+
+        &.lake {
+          background-color: #4da6ff;
+        }
+
+        &.club {
+          background-color: #fff;
+        }
+
+        &.hangar {
+          background-color: #ffcc00;
+        }
+      }
+    }
+  }
+}

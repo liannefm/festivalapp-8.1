@@ -1,0 +1,182 @@
+// ============================================
+// GLOBAL STYLES
+// ============================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  // margin: 0 auto;
+  background-color: #1a1a1a;
+  position: relative;
+}
+
+// ============================================
+// HEADER
+// ============================================
+
+.header {
+  background-color: #222;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  width: 100%;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 0 20px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .logo-img {
+        height: 28px;
+        width: auto;
+      }
+
+      .festival-text {
+        font-size: 23px;
+        font-weight: lighter;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+    }
+
+    .lightbulb {
+      width: 28px;
+      position: fixed;
+      right: 63px;
+    }
+
+    .flag {
+      font-size: 20px;
+      width: 28px;
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+.page {
+  padding: 20px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 33px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 100;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  &.homescreen {
+    padding: 0;
+  }
+}
+
+// ============================================
+// BOTTOM NAVIGATION
+// ============================================
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 11px;
+    transition: all 0.3s;
+    flex: 1;
+    height: 100%;
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
+
+    .nav-label {
+      font-weight: bold;
+    }
+
+    &.active {
+      color: #ff4d7d;
+
+      .nav-icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    &:hover {
+      color: #fff;
+
+      .nav-icon {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
