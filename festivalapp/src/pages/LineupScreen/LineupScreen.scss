@@ -1,88 +1,231 @@
 .lineupscreen {
+  h1 {
+    margin-bottom: 10px;
+  }
+
   .day-tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 25px;
     justify-content: center;
 
     .tab {
-      padding: 8px 20px;
+      padding: 10px 24px;
       background-color: transparent;
-      border: 1px solid #666;
+      border: 1.5px solid #444;
       color: #fff;
-      border-radius: 4px;
+      border-radius: 3px;
       cursor: pointer;
       font-size: 14px;
+      font-weight: 700;
       transition: all 0.3s;
 
       &.active {
-        background-color: #ff4d7d;
-        border-color: #ff4d7d;
+        background-color: #F03228;
+        border-color: #F03228;
       }
 
       &:hover:not(.active) {
-        border-color: #aaa;
+        border-color: #888;
       }
     }
   }
 
-  .timeline {
-    margin-bottom: 30px;
+  .grid-container {
+    background-color: #1a1a1a;
+    border: 1px solid #2c2f33;
+    border-radius: 14px;
+    padding: 16px 8px;
+    margin-bottom: 20px;
+  }
 
-    .time-slot {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 10px;
-      align-items: center;
+  .time-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 4px;
 
-      .time {
-        width: 40px;
-        font-size: 12px;
-        color: #aaa;
-      }
+    .time-spacer {
+      width: 72px;
+      flex-shrink: 0;
+    }
 
-      .artist-bar {
-        flex: 1;
-        height: 30px;
-        background-color: #ff4d7d;
-        border-radius: 4px;
+    .time-label {
+      flex: 1;
+      text-align: center;
+      font-size: 9px;
+      color: #555;
+      font-weight: 700;
+    }
+  }
+
+  .lineup-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .stage-row {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border-radius: 10px;
+    height: 64px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #282828;
+    }
+  }
+
+  .stage-label {
+    width: 72px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 12px;
+    gap: 1px;
+
+    .stage-emoji {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .stage-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+
+  .stage-track {
+    flex: 1;
+    position: relative;
+    height: 100%;
+  }
+
+  .track-gridlines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+
+    .gridline {
+      flex: 1;
+      border-left: 1px solid rgba(255, 255, 255, 0.04);
+
+      &:first-child {
+        border-left: none;
       }
     }
   }
 
-  .stage-legend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
+  .event-bar {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    cursor: pointer;
 
-    .stage-item {
+    &:hover {
+      transform: scaleY(1.06);
+    }
+
+    .event-artist {
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      // background: linear-gradient(
+      //   180deg,
+      //   rgba(255, 255, 255, 0.12) 0%,
+      //   rgba(255, 255, 255, 0) 100%
+      // );
+      pointer-events: none;
+    }
+  }
+
+  .event-bar.poton {
+    background-color: #F03228;
+    color: #fff;
+    border-radius: 3px;
+  }
+
+  .event-bar.lake {
+    background-color: #247BA0;
+    color: #fff;
+    border-radius: 3px;
+  }
+
+  .event-bar.club {
+    background-color: #FFFFFF;
+    color: #111;
+    border-radius: 3px;
+  }
+
+  .event-bar.hanggar {
+    background-color: #E3B505;
+    color: #111;
+    border-radius: 3px;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    .legend-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
+      gap: 6px;
 
-      .stage-color {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
+      span {
+        font-size: 11px;
+        font-weight: 600;
+        color: #666;
+      }
+    }
 
-        &.poton {
-          background-color: #ff4d7d;
-        }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
 
-        &.lake {
-          background-color: #4da6ff;
-        }
+      &.poton {
+        background-color: #F03228;
+      }
 
-        &.club {
-          background-color: #fff;
-        }
+      &.the-lake {
+        background-color: #247BA0;
 
-        &.hangar {
-          background-color: #ffcc00;
-        }
+      }
+
+      &.the-club {
+        background-color: #FFFFFF;;
+      }
+
+      &.hanggar {
+        background-color: #E3B505;
       }
     }
   }
