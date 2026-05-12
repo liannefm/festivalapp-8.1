@@ -19,6 +19,28 @@
             border-radius: 10px 10px 0 0;
         }
 
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 80px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &::before {
+            top: 0;
+            background: linear-gradient(to bottom, #1a1a1a, transparent);
+            border-radius: 10px 10px 0 0;
+        }
+
+        &::after {
+            bottom: 0;
+            background: linear-gradient(to top, #1a1a1a, transparent);
+        }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -33,6 +55,7 @@
             background: rgba(0, 0, 0, 0.2);
             gap: 10px;
             border-radius: 10px 10px 0 0;
+            z-index: 2;
 
             h1 {
                 font-size: 23px;
@@ -59,23 +82,26 @@
         padding: 20px;
 
         .explore-btn {
-            background-color: #F03222;
+            background: linear-gradient(135deg, #F03222 0%, #ff1f50 100%);
             color: #fff;
             border: none;
-            padding: 14px 20px;
-            border-radius: 0;
+            padding: 16px 24px;
+            border-radius: 12px;
             font-size: 20px;
-            font-weight: lighter;
+            font-weight: 600;
             cursor: pointer;
             margin-bottom: 30px;
             text-decoration: none;
             display: block;
             text-align: center;
-            transition: background-color 0.3s;
-            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(240, 50, 34, 0.4);
 
             &:hover {
-                background-color: #ff1f50;
+                background: linear-gradient(135deg, #ff1f50 0%, #F03222 100%);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(240, 50, 34, 0.5);
             }
         }
 
