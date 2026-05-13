@@ -36,7 +36,7 @@ const translations = {
       map: 'KAART'
     },
     home: {
-      welcome: 'WELCOME TO',
+      welcome: 'WELKOM BIJ',
       festival: 'U FESTIVAL',
       explore: 'VERKEN LINE-UP →',
       nextUp: 'Volgende'
@@ -146,7 +146,7 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
           />
           <div className="flag-container" ref={dropdownRef}>
             <img 
-              src="/src/assets/img/usflag.png" 
+              src={language === 'nl' ? '/src/assets/img/dutchflag.png' : '/src/assets/img/usflag.png'} 
               alt="Language selector" 
               className="flag" 
               onClick={toggleLanguageDropdown}

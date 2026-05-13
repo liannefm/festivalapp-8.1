@@ -6,15 +6,42 @@ interface MapScreenProps {
 
 function MapScreen({ language }: MapScreenProps) {
   const translations = {
-    nl: {
-      title: 'Kaart'
-    },
     en: {
-      title: 'Map'
+      title: 'Map',
+      locations: {
+        1: 'POTION',
+        2: 'THE LAKE',
+        3: 'INFORMATION',
+        4: 'HANGAR',
+        5: 'TOILET',
+        6: 'MERCHANDISE',
+        7: 'ICE CREAM',
+        8: 'FOOD',
+        9: 'BAR',
+        10: 'FIRST AID',
+        11: 'LOCKER'
+      }
+    },
+    nl: {
+      title: 'Kaart',
+      locations: {
+        1: 'POTION',
+        2: 'THE LAKE',
+        3: 'INFORMATIE',
+        4: 'HANGAR',
+        5: 'TOILET',
+        6: 'MERCHANDISE',
+        7: 'IJS',
+        8: 'ETEN',
+        9: 'BAR',
+        10: 'EERSTE HULP',
+        11: 'KLUISJE'
+      }
     }
   }
 
   const t = translations[language as keyof typeof translations] || translations.en
+
   return (
     <div className="page mapscreen">
       <h1>{t.title}</h1>
@@ -33,49 +60,49 @@ function MapScreen({ language }: MapScreenProps) {
         <div className="legend-column">
           <div className="legend-item">
             <span className="number">1</span>
-            <span>POTION</span>
+            <span>{t.locations[1]}</span>
           </div>
           <div className="legend-item">
             <span className="number">2</span>
-            <span>THE LAKE</span>
+            <span>{t.locations[2]}</span>
           </div>
           <div className="legend-item">
             <span className="number">3</span>
-            <span>INFORMATION</span>
+            <span>{t.locations[3]}</span>
           </div>
           <div className="legend-item">
             <span className="number">4</span>
-            <span>HANGAR</span>
+            <span>{t.locations[4]}</span>
           </div>
           <div className="legend-item">
             <span className="number">5</span>
-            <span>TOILET</span>
+            <span>{t.locations[5]}</span>
           </div>
           <div className="legend-item">
             <span className="number">6</span>
-            <span>MERCHANDISE</span>
+            <span>{t.locations[6]}</span>
           </div>
         </div>
         <div className="legend-column">
           <div className="legend-item">
             <span className="number">7</span>
-            <span>ICE CREAM</span>
+            <span>{t.locations[7]}</span>
           </div>
           <div className="legend-item">
             <span className="number">8</span>
-            <span>FOOD</span>
+            <span>{t.locations[8]}</span>
           </div>
           <div className="legend-item">
             <span className="number">9</span>
-            <span>BAR</span>
+            <span>{t.locations[9]}</span>
           </div>
           <div className="legend-item">
             <span className="number">10</span>
-            <span>FIRST AID</span>
+            <span>{t.locations[10]}</span>
           </div>
           <div className="legend-item">
             <span className="number">11</span>
-            <span>LOCKER</span>
+            <span>{t.locations[11]}</span>
           </div>
         </div>
       </div>
