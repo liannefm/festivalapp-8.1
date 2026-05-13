@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import './LineupScreen.scss'
 
+interface LineupScreenProps {
+  language: string
+}
+
 const times = ['10:00', '10:30', '11:00', '11:30', '12:00']
 const stages = ['Poton', 'The Lake', 'The Club', 'Hanggar']
 
@@ -28,27 +32,41 @@ const schedule: Record<
   ],
 }
 
-function LineupScreen() {
+function LineupScreen({ language }: LineupScreenProps) {
+  const translations = {
+    nl: {
+      title: 'Line-up',
+      saturday: 'Zaterdag',
+      sunday: 'Zondag'
+    },
+    en: {
+      title: 'Line-up',
+      saturday: 'Saturday',
+      sunday: 'Sunday'
+    }
+  }
+
+  const t = translations[language as keyof typeof translations] || translations.en
   const [activeDay, setActiveDay] = useState('saturday')
 
   const activeSchedule = useMemo(() => schedule[activeDay] || [], [activeDay])
 
   return (
     <div className="page lineupscreen">
-      <h1>Line-up</h1>
+      <h1>{t.title}</h1>
 
       <div className="day-tabs">
         <button
           className={`tab ${activeDay === 'saturday' ? 'active' : ''}`}
           onClick={() => setActiveDay('saturday')}
         >
-          Saturday
+          {t.saturday}
         </button>
         <button
           className={`tab ${activeDay === 'sunday' ? 'active' : ''}`}
           onClick={() => setActiveDay('sunday')}
         >
-          Sunday
+          {t.sunday}
         </button>
       </div>
 

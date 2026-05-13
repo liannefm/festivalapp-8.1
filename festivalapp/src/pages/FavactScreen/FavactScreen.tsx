@@ -1,6 +1,20 @@
 import './FavactScreen.scss'
 
-function FavactScreen() {
+interface FavactScreenProps {
+  language: string
+}
+
+function FavactScreen({ language }: FavactScreenProps) {
+  const translations = {
+    nl: {
+      title: 'Mijn favorieten'
+    },
+    en: {
+      title: 'My favorites'
+    }
+  }
+
+  const t = translations[language as keyof typeof translations] || translations.en
   const favoriteArtists = [
     { id: 1, name: 'Armin van Buuren', type: 'trance icon', time: 'Saturday 10:30 - 11:45', avatar: '' },
     { id: 2, name: 'Martin Garrix', type: 'EDM producer', time: 'Saturday 22:00 - 23:15', avatar: '' },
@@ -10,7 +24,7 @@ function FavactScreen() {
 
   return (
     <div className="page favactscreen">
-      <h1>My favorites</h1>
+      <h1>{t.title}</h1>
       
       <div className="favorites-list">
         {favoriteArtists.map((artist) => (

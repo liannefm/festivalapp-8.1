@@ -72,3 +72,14 @@
     }
   }
 }
+
+.app.light-mode .mapscreen {
+  .legend {
+    background-color: #ececec;
+    border: 1px solid #ddd;
+
+    .legend-column .legend-item {
+      color: #111;
+    }
+  }
+}

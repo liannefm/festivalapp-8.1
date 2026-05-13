@@ -175,3 +175,62 @@
         }
     }
 }
+
+.app.light-mode .homescreen {
+    background-color: #f7f7f7;
+
+    .hero-section {
+        &::before {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), transparent);
+        }
+
+        &::after {
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.75), transparent);
+        }
+
+        .hero-overlay {
+            background: rgba(255, 255, 255, 0.45);
+
+            h1,
+            h2 {
+                color: #111;
+            }
+        }
+    }
+
+    .content-wrapper {
+        background-color: #ffffff;
+
+        .explore-btn {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .next-up {
+            border-top: 1px solid #ddd;
+
+            h3 {
+                color: #111;
+            }
+
+            .artist-card {
+                background-color: #ececec;
+                border-color: #ddd;
+
+                .artist-avatar {
+                    background-color: #d1d1d1;
+                }
+
+                .artist-info {
+                    .artist-name {
+                        color: #111;
+                    }
+
+                    .artist-time,
+                    .artist-stage {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}

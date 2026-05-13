@@ -1,24 +1,44 @@
 import { Link } from 'react-router-dom'
 import './HomeScreen.scss'
 
-function HomeScreen() {
+interface HomeScreenProps {
+  language: string
+}
+
+function HomeScreen({ language }: HomeScreenProps) {
+  const translations = {
+    nl: {
+      welcome: 'WELCOME TO',
+      festival: 'U FESTIVAL',
+      explore: 'VERKEN LINE-UP →',
+      nextUp: 'Volgende'
+    },
+    en: {
+      welcome: 'WELCOME TO',
+      festival: 'U FESTIVAL',
+      explore: 'EXPLORE LINE-UP →',
+      nextUp: 'Next up'
+    }
+  }
+
+  const t = translations[language as keyof typeof translations] || translations.en
   return (
     <div className="page homescreen">
       <div className="hero-section">
         <img src="/src/assets/img/homescreenimg.png" alt="Festival Crowd" className="hero-image" />
         <div className="hero-overlay">
-          <h1>WELCOME TO</h1>
-          <h2><img src="/src/assets/icons/heartfull.png" alt="Festival Logo" /> U FESTIVAL</h2>
+          <h1>{t.welcome}</h1>
+          <h2><img src="/src/assets/icons/heartfull.png" alt="Festival Logo" /> {t.festival}</h2>
         </div>
       </div>
 
       <div className="content-wrapper">
         <Link to="/lineup" className="explore-btn">
-          EXPLORE LINE-UP →
+          {t.explore}
         </Link>
 
         <div className="next-up">
-          <h3>Next up</h3>
+          <h3>{t.nextUp}</h3>
           <div className="artist-card">
             <img src="" alt="Armin van Buuren" className="artist-avatar" />
             <div className="artist-info">

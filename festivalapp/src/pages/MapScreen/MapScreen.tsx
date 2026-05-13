@@ -1,9 +1,23 @@
 import './MapScreen.scss'
 
-function MapScreen() {
+interface MapScreenProps {
+  language: string
+}
+
+function MapScreen({ language }: MapScreenProps) {
+  const translations = {
+    nl: {
+      title: 'Kaart'
+    },
+    en: {
+      title: 'Map'
+    }
+  }
+
+  const t = translations[language as keyof typeof translations] || translations.en
   return (
     <div className="page mapscreen">
-      <h1>Map</h1>
+      <h1>{t.title}</h1>
       
       <div className="map-container">
         <div className="map" style={{ backgroundColor: '#4CAF50', height: '300px' }}>

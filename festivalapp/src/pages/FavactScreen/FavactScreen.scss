@@ -64,3 +64,27 @@
         }
     }
 }
+
+.app.light-mode .favactscreen {
+    .favorites-list {
+        .favorite-item {
+            background-color: #ececec;
+            border: 1px solid #ddd;
+
+            .artist-avatar {
+                background-color: #d1d1d1;
+            }
+
+            .artist-info {
+                .artist-name {
+                    color: #111;
+                }
+
+                .artist-type,
+                .artist-time {
+                    color: #333;
+                }
+            }
+        }
+    }
+}
