@@ -8,23 +8,6 @@ import InfoScreen from './pages/InfoScreen/InfoScreen'
 import MapScreen from './pages/MapScreen/MapScreen'
 import logo from './assets/img/logo_white.svg'
 import logoBlack from './assets/img/logo-black.svg'
-import homeIcon from './assets/icons/home.png'
-import homeIconBlack from './assets/icons/homeblack.png'
-import homeIconRed from './assets/icons/homered.png'
-import infoIcon from './assets/icons/info.png'
-import infoIconBlack from './assets/icons/infoblack.png'
-import infoIconRed from './assets/icons/infored.png'
-import lineupIcon from './assets/icons/musical-note.png'
-import lineupIconBlack from './assets/icons/musicalnoteblack.png'
-import lineupIconRed from './assets/icons/musicalnotered.png'
-import favoritesIcon from './assets/icons/heart.png'
-import favoritesIconBlack from './assets/icons/heartblack.png'
-import favoritesIconRed from './assets/icons/heartred.png'
-import mapIcon from './assets/icons/placeholder.png'
-import mapIconBlack from './assets/icons/placeholderblack.png'
-import mapIconRed from './assets/icons/placeholderred.png'
-import lightbulbIcon from './assets/icons/lightbulb.png'
-import lightbulbIconBlack from './assets/icons/lightbulbblack.png'
 
 const translations = {
   nl: {
@@ -96,11 +79,11 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
   const t = translations[language as keyof typeof translations]
 
   const navItems = [
-    { path: '/', label: t.nav.home, icon: homeIcon, iconBlack: homeIconBlack, iconRed: homeIconRed },
-    { path: '/info', label: t.nav.info, icon: infoIcon, iconBlack: infoIconBlack, iconRed: infoIconRed },
-    { path: '/lineup', label: t.nav.lineup, icon: lineupIcon, iconBlack: lineupIconBlack, iconRed: lineupIconRed },
-    { path: '/favorites', label: t.nav.favorites, icon: favoritesIcon, iconBlack: favoritesIconBlack, iconRed: favoritesIconRed },
-    { path: '/map', label: t.nav.map, icon: mapIcon, iconBlack: mapIconBlack, iconRed: mapIconRed },
+    { path: '/', label: t.nav.home, iconName: 'home' },
+    { path: '/info', label: t.nav.info, iconName: 'info' },
+    { path: '/lineup', label: t.nav.lineup, iconName: 'music_note' },
+    { path: '/favorites', label: t.nav.favorites, iconName: 'favorite' },
+    { path: '/map', label: t.nav.map, iconName: 'map' },
   ]
 
   useEffect(() => {
@@ -133,18 +116,18 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
             <img src={isLightMode ? logoBlack : logo} alt="Festival Logo" className="logo-img" />
             <span className="festival-text">FESTIVAL</span>
           </div>
-          <img
-            src={isLightMode ? lightbulbIconBlack : lightbulbIcon}
-            alt="Toggle theme"
-            className="lightbulb"
-            role="button"
-            tabIndex={0}
-            onClick={toggleTheme}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') toggleTheme()
-            }}
-          />
-          <div className="flag-container" ref={dropdownRef}>
+          <div className="header-actions">
+            <button
+              type="button"
+              className="theme-toggle"
+              aria-label="Toggle theme"
+              onClick={toggleTheme}
+            >
+              <span className="material-symbols-outlined">
+                {isLightMode ? 'dark_mode' : 'light_mode'}
+              </span>
+            </button>
+            <div className="flag-container" ref={dropdownRef}>
             <img 
               src={language === 'nl' ? '/src/assets/img/dutchflag.png' : '/src/assets/img/usflag.png'} 
               alt="Language selector" 
@@ -174,6 +157,7 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
             )}
           </div>
         </div>
+      </div>
       </header>
 
       <main className="main-content">
@@ -189,7 +173,6 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
       <nav className="bottom-nav">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path
-          const iconSrc = isActive ? item.iconRed : isLightMode ? item.iconBlack : item.icon
 
           return (
             <Link
@@ -197,11 +180,7 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
               to={item.path}
               className={`nav-item ${isActive ? 'active' : ''}`}
             >
-              <img
-                src={iconSrc}
-                alt={item.label}
-                className="nav-icon"
-              />
+              <span className="material-symbols-outlined nav-icon">{item.iconName}</span>
               <span className="nav-label">{item.label}</span>
             </Link>
           )

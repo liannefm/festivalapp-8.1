@@ -51,29 +51,60 @@
                 text-align: left;
                 min-width: 0;
 
+                .faq-summary {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                    background: none;
+                    color: inherit;
+                    font: inherit;
+                    text-align: left;
+                    cursor: pointer;
+                }
+
+                .faq-toggle {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    background: rgba(255, 255, 255, 0.06);
+                    font-size: 18px;
+                    line-height: 1;
+                }
+
+                .faq-details {
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transition: max-height 0.25s ease, opacity 0.25s ease;
+                }
+
+                .faq-details.open,
+                .faq-item.open .faq-details {
+                    max-height: 1000px;
+                    opacity: 1;
+                    margin-top: 10px;
+                }
+
                 h4 {
                     font-size: 18px;
                     margin-bottom: 6px;
-                    color: #F03228;
+                    color: var(--color-secondary);
                 }
 
                 p {
                     font-size: 15px;
                     line-height: 1.6;
                     color: #bbb;
+                    margin: 0;
                 }
-            }
-
-            h4 {
-                font-size: 18px;
-                margin-bottom: 6px;
-                color: #F03228;
-            }
-
-            p {
-                font-size: 15px;
-                line-height: 1.6;
-                color: #bbb;
             }
 
             .heart-icon {
@@ -85,16 +116,16 @@
 
             &.info-golden {
                 background: linear-gradient(135deg, #3f3200 0%, #2b2200 100%);
-                border-color: rgba(255, 215, 0, 0.3);
+                border-color: rgba(227, 181, 5, 0.3);
 
                 .section-icon {
-                    color: #FFD700;
-                    background: rgba(255, 215, 0, 0.16);
+                    color: var(--color-info);
+                    background: rgba(227, 181, 5, 0.16);
                 }
 
                 .section-text {
                     h4 {
-                        color: #FFD700;
+                        color: var(--color-info);
                     }
 
                     p {
@@ -103,7 +134,7 @@
                 }
 
                 &:hover {
-                    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.18);
+                    box-shadow: 0 4px 16px rgba(227, 181, 5, 0.18);
                 }
             }
         }
@@ -138,17 +169,17 @@
 }
 
 .app.light-mode .infoscreen .info-section.info-golden {
-    background: linear-gradient(135deg, #fefefe 0%, #fafafa 100%);
-    border-color: rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    border-color: rgba(227, 181, 5, 0.4);
 
     .section-icon {
-        color: #FFD700;
-        background: rgba(255, 215, 0, 0.2);
+        color: var(--color-info);
+        background: rgba(227, 181, 5, 0.2);
     }
 
     .section-text {
         h4 {
-            color: #B8860B;
+            color: var(--color-info);
         }
 
         p {
@@ -157,7 +188,7 @@
     }
 
     h4 {
-        color: #B8860B;
+        color: var(--color-info);
     }
 
     p {

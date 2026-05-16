@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'Sansation';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/font/Sansation-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sansation';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/font/Sansation-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sansation';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/font/Sansation-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sansation';
+  font-style: italic;
+  font-weight: 400;
+  src: url('./assets/font/Sansation-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sansation';
+  font-style: italic;
+  font-weight: 700;
+  src: url('./assets/font/Sansation-BoldItalic.ttf') format('truetype');
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -12,7 +47,7 @@
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Sansation', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -69,7 +104,7 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-h);
 }
 

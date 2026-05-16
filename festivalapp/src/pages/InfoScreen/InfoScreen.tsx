@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './InfoScreen.scss'
 import { FaBicycle, FaCar, FaTrain, FaBus, FaTaxi, FaLock, FaPills, FaDoorOpen, FaBoxes, FaCrown } from 'react-icons/fa'
 
@@ -117,6 +118,14 @@ function InfoScreen({ language }: InfoScreenProps) {
     }
   }
 
+  const [openFaq, setOpenFaq] = useState<string | null>(null)
+
+  const faqItems = [
+    { id: 'medication', icon: <FaPills /> },
+    { id: 'leave', icon: <FaDoorOpen /> },
+    { id: 'lockers2', icon: <FaBoxes /> }
+  ]
+
   const t = translations[language as keyof typeof translations] || translations.en
   return (
     <div className="page infoscreen">
@@ -184,29 +193,29 @@ function InfoScreen({ language }: InfoScreenProps) {
 
         <h2>{t.faq}</h2>
 
-        <div className="info-section">
-          <div className="section-icon"><FaPills /></div>
-          <div className="section-text">
-            <h4>{t.sections.medication.title}</h4>
-            <p>{t.sections.medication.text}</p>
-          </div>
-        </div>
+        {faqItems.map((item) => {
+          const section = t.sections[item.id as keyof typeof t.sections]
+          const isOpen = openFaq === item.id
 
-        <div className="info-section">
-          <div className="section-icon"><FaDoorOpen /></div>
-          <div className="section-text">
-            <h4>{t.sections.leave.title}</h4>
-            <p>{t.sections.leave.text}</p>
-          </div>
-        </div>
-
-        <div className="info-section">
-          <div className="section-icon"><FaBoxes /></div>
-          <div className="section-text">
-            <h4>{t.sections.lockers2.title}</h4>
-            <p>{t.sections.lockers2.text}</p>
-          </div>
-        </div>
+          return (
+            <div key={item.id} className={`info-section faq-item ${isOpen ? 'open' : ''}`}>
+              <div className="section-icon">{item.icon}</div>
+              <div className="section-text">
+                <button
+                  type="button"
+                  className="faq-summary"
+                  onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                >
+                  <span>{section.title}</span>
+                  <span className="faq-toggle">{isOpen ? '−' : '+'}</span>
+                </button>
+                <div className={`faq-details ${isOpen ? 'open' : ''}`}>
+                  <p>{section.text}</p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
 
         <div className="info-section info-golden">
           <div className="section-icon"><FaCrown /></div>

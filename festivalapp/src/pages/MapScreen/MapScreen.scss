@@ -28,7 +28,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
+        font-weight: 300;
+        font-style: italic;
 
         &:hover {
           background-color: #f0f0f0;
@@ -57,7 +58,7 @@
         font-size: 12px;
 
         .number {
-          background-color: #ff4d7d;
+          background-color: #F03228;
           color: #fff;
           width: 24px;
           height: 24px;
@@ -75,7 +76,7 @@
 
 .app.light-mode .mapscreen {
   .legend {
-    background-color: #ececec;
+    background-color: #ffffff;
     border: 1px solid #ddd;
 
     .legend-column .legend-item {

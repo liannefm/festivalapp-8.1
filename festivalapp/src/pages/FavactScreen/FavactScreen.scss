@@ -56,9 +56,11 @@
                 font-size: 20px;
                 cursor: pointer;
                 padding: 0;
+                font-weight: 300;
+                font-style: italic;
 
                 &.active {
-                    color: #ff4d7d;
+                    color: #F03228;
                 }
             }
         }
@@ -68,7 +70,7 @@
 .app.light-mode .favactscreen {
     .favorites-list {
         .favorite-item {
-            background-color: #ececec;
+            background-color: #ffffff;
             border: 1px solid #ddd;
 
             .artist-avatar {

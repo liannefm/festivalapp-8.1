@@ -18,17 +18,8 @@
       border-radius: 3px;
       cursor: pointer;
       font-size: 14px;
-      font-weight: 700;
-      transition: all 0.3s;
-
-      &.active {
-        background-color: #F03228;
-        border-color: #F03228;
-      }
-
-      &:hover:not(.active) {
-        border-color: #888;
-      }
+      font-weight: 300;
+      font-style: italic;
     }
   }
 
@@ -263,10 +254,10 @@
   }
 
   .stage-row {
-    background-color: #ececec;
+    background-color: #ffffff;
 
     &:hover {
-      background-color: #ddd;
+      background-color: #f5f5f5;
     }
   }
 

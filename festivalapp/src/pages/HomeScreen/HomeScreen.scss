@@ -59,7 +59,7 @@
 
             h1 {
                 font-size: 23px;
-                font-weight: normal;
+                font-weight: 700;
                 color: #bbb;
                 margin: 0;
                 letter-spacing: 2px;
@@ -82,13 +82,14 @@
         padding: 20px;
 
         .explore-btn {
-            background: linear-gradient(135deg, #F03222 0%, #ff1f50 100%);
+            background: linear-gradient(135deg, #F03228 0%, #F03228 100%);
             color: #fff;
             border: none;
             padding: 16px 24px;
             border-radius: 12px;
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 300;
+            font-style: italic;
             cursor: pointer;
             margin-bottom: 30px;
             text-decoration: none;
@@ -99,7 +100,7 @@
             box-shadow: 0 4px 15px rgba(240, 50, 34, 0.4);
 
             &:hover {
-                background: linear-gradient(135deg, #ff1f50 0%, #F03222 100%);
+                background: linear-gradient(135deg, #F03228 0%, #F03228 100%);
                 transform: translateY(-2px);
                 box-shadow: 0 6px 20px rgba(240, 50, 34, 0.5);
             }
@@ -111,7 +112,7 @@
 
             h3 {
                 font-size: 25px;
-                font-weight: normal;
+                font-weight: 700;
                 color: #fff;
                 margin: 0 0 15px 0;
                 text-align: left;
@@ -166,6 +167,8 @@
                     padding: 0;
                     flex-shrink: 0;
                     transition: transform 0.2s;
+                    font-weight: 300;
+                    font-style: italic;
 
                     &:hover {
                         transform: scale(1.1);
