@@ -253,7 +253,12 @@ body.light-mode {
 }
 
 .app.light-mode .nav-item.active {
-  color: #F03228;
+  color: #F03228 !important;
+
+  .nav-icon {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .app.light-mode .nav-item:not(.active):hover {
@@ -363,7 +368,7 @@ body.light-mode {
     }
 
     &.active {
-      color: #F03228;
+      color: #F03228 !important;
 
       .nav-icon {
         width: 28px;
@@ -371,7 +376,7 @@ body.light-mode {
       }
 
       &:hover {
-        color: #F03228;
+        color: #F03228 !important;
       }
     }
 

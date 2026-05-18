@@ -20,6 +20,17 @@
       font-size: 14px;
       font-weight: 300;
       font-style: italic;
+      transition: all 0.2s ease;
+
+      &.active {
+        background-color: #F03228;
+        border-color: #F03228;
+        color: #fff;
+      }
+
+      &:hover:not(.active) {
+        border-color: #F03228;
+      }
     }
   }
 
@@ -120,23 +131,26 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    overflow: hidden;
+    padding: 0 8px;
+    overflow: visible;
     transition: transform 0.2s ease;
     cursor: pointer;
 
     &:hover {
       transform: scaleY(1.06);
+      z-index: 10;
     }
 
     .event-artist {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow: visible;
+      text-overflow: clip;
       position: relative;
       z-index: 1;
+      line-height: 1.2;
     }
 
     &::after {
@@ -191,7 +205,7 @@
       gap: 6px;
 
       span {
-        font-size: 11px;
+        font-size: 15px;
         font-weight: 600;
         color: #666;
       }

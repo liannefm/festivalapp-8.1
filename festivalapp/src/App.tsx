@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
 import './App.scss'
 import HomeScreen from './pages/HomeScreen/HomeScreen'
@@ -71,7 +71,6 @@ const translations = {
 }
 
 function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggleTheme: () => void }) {
-  const location = useLocation()
   const [language, setLanguage] = useState('en')
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -171,20 +170,16 @@ function AppContent({ isLightMode, toggleTheme }: { isLightMode: boolean; toggle
       </main>
 
       <nav className="bottom-nav">
-        {navItems.map((item) => {
-          const isActive = location.pathname === item.path
-
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`nav-item ${isActive ? 'active' : ''}`}
-            >
-              <span className="material-symbols-outlined nav-icon">{item.iconName}</span>
-              <span className="nav-label">{item.label}</span>
-            </Link>
-          )
-        })}
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+          >
+            <span className="material-symbols-outlined nav-icon">{item.iconName}</span>
+            <span className="nav-label">{item.label}</span>
+          </NavLink>
+        ))}
       </nav>
     </div>
   )
